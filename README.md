@@ -19,11 +19,31 @@ pip install -e ".[dev]"
 ## Usage
 
 ```python
-from marrmotflow import example_function
+from marrmotflow import MARRMOTWorkflow
 
 # Example usage
-result = example_function()
-print(result)
+config = {
+    'cat': 'path/to/catchment.shp', 
+    'forcing_files': 'path/to/forcing/files',
+    'forcing_vars': {
+        "temperature": "temperature_variable_name",
+        "precipitation": "precipitation_variable_name",
+    },
+    'forcing_units': {
+        'temperature': 'celsius',
+        'precipitation': 'meter / hour',
+    },
+    'forcing_time_zone': 'UTC',
+}
+
+# Build the MARRMOT workflow
+marrmot_experiment = MARRMOTWorkflow(**config)
+
+# Run the workflow
+marrmot_experiment.run()
+
+# Save the results
+marrmot_experiment.save_results('path/to/save/results/directory')
 ```
 
 ## Development
