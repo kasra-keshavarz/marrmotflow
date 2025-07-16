@@ -41,19 +41,31 @@ Basic usage:
 .. code-block:: python
 
    from marrmotflow import MARRMOTWorkflow
-   import geopandas as gpd
-
-   # Load your catchment data
-   catchments = gpd.read_file("catchments.shp")
    
-   # Create a workflow
-   workflow = MARRMOTWorkflow(
-       name="MyWorkflow",
-       cat=catchments,
-       forcing_files=["forcing_data.nc"],
-       forcing_vars={"precip": "precipitation", "temp": "temperature"},
-       model_number=[7, 37]  # HBV-96 and GR4J models
-   )
+   # Example usage
+   config = {
+       'cat': 'path/to/catchment.shp', 
+       'forcing_files': 'path/to/forcing/files',
+       'forcing_vars': {
+           "temperature": "temperature_variable_name",
+           "precipitation": "precipitation_variable_name",
+       },
+       'forcing_units': {
+           'temperature': 'celsius',
+           'precipitation': 'meter / hour',
+       },
+       'forcing_time_zone': 'UTC',
+   }
+   
+   # Build the MARRMOT workflow
+   marrmot_experiment = MARRMOTWorkflow(**config)
+   
+   # Run the workflow
+   marrmot_experiment.run()
+   
+   # Save the results
+   marrmot_experiment.save_results('path/to/save/results/directory')
+
 
 Indices and tables
 ==================
