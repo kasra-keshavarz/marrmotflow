@@ -431,7 +431,8 @@ class MARRMOTWorkflow:
         for num in model_number:
             # check if the model number is in the default model dict
             if num in default_model_dict:
-                model_files.append(default_model_dict[num])
+                model_name = default_model_dict[num]
+                model_files.append(model_name)
             else:
                 raise ValueError(f"Model number {num} in MARRMoT is not supported.")
                     
