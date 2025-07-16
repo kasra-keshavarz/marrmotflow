@@ -32,6 +32,9 @@ extensions = [
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
+# Suppress warnings about missing references during builds
+suppress_warnings = ['ref.unknown']
+
 # -- Autodoc configuration ---------------------------------------------------
 autodoc_default_options = {
     'members': True,
@@ -41,7 +44,11 @@ autodoc_default_options = {
     'exclude-members': '__weakref__'
 }
 
+# Mock imports for modules that might not be available during documentation build
+autodoc_mock_imports = []
+
 autosummary_generate = True
+autosummary_imported_members = True
 
 # -- Napoleon settings -------------------------------------------------------
 napoleon_google_docstring = True

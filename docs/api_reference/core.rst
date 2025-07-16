@@ -17,19 +17,10 @@ MARRMOTWorkflow Class
    :show-inheritance:
    :special-members: __init__
 
-   .. rubric:: Methods
-
-   .. autosummary::
-      :toctree: generated/
-
-      ~MARRMOTWorkflow.__init__
-
 Class Methods
 ~~~~~~~~~~~~~
 
 The following methods are available on the MARRMOTWorkflow class:
-
-.. automethod:: marrmotflow.core.MARRMOTWorkflow.__init__
 
 Parameters
 ~~~~~~~~~~
