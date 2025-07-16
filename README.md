@@ -1,6 +1,6 @@
 # MarrmotFlow
 
-A Python package for marrmotflow functionality.
+A Python package for building and running [MARRMoT](https://github.com/wknoben/MARRMoT) hydrological models using a model-agnostic approach. The complete documentation is available at [marrmotflow.readthedocs.io](https://marrmotflow.readthedocs.io).
 
 ## Installation
 
