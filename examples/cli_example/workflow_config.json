@@ -1,0 +1,17 @@
+{
+    "name": "ExampleWorkflow",
+    "cat": "/path/to/your/catchment.shp",
+    "forcing_vars": {
+        "precip": "precipitation",
+        "temp": "temperature"
+    },
+    "forcing_files": "/path/to/your/forcing/data/",
+    "forcing_units": {
+        "precip": "mm/day",
+        "temp": "degC"
+    },
+    "pet_method": "hamon",
+    "model_number": [7, 37],
+    "forcing_time_zone": "UTC",
+    "model_time_zone": "America/Edmonton"
+}

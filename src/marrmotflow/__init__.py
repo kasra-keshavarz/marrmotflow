@@ -5,3 +5,4 @@ __author__ = "Kasra Keshavarz"
 __email__ = "kasra.keshavarz1@ucalgary.ca"
 
 from .core import MARRMOTWorkflow
+from .cli import main as cli_main

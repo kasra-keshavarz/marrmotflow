@@ -57,6 +57,9 @@ Homepage = "https://github.com/kasra-keshavarz/marrmotflow"
 Repository = "https://github.com/kasra-keshavarz/marrmotflow"
 Issues = "https://github.com/kasra-keshavarz/marrmotflow/issues"
 
+[project.scripts]
+marrmotflow = "marrmotflow.cli:main"
+
 [tool.setuptools.packages.find]
 where = ["src"]
 

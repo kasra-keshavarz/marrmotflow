@@ -47,7 +47,7 @@ class MARRMOTWorkflow:
         forcing_vars: Dict[str, str] = {},
         forcing_files: Sequence[PathLike] | PathLike = None, # type: ignore
         forcing_units: Dict[str, str] = {},
-        pet_method: str = "penman_monteith",
+        pet_method: str = "hamon",
         model_number: Sequence[int] | int = [7, 37], # HBV-96 and GR4J as default models
         forcing_time_zone: str = None,
         model_time_zone: str = None,
@@ -188,6 +188,17 @@ class MARRMOTWorkflow:
         if v:
             return b+v+a
         return s
+
+    @staticmethod
+    def _is_valid_integer(obj):
+        """
+        Check if a string represents a valid integer.
+        """
+        try:
+            int(obj)
+            return True
+        except (ValueError, TypeError):
+            return False
 
     @staticmethod
     def _json_decoder(obj):
@@ -391,8 +402,8 @@ class MARRMOTWorkflow:
 
     def init_pet(self):
         """Initialize potential evapotranspiration (PET) calculation."""
-        if self.pet_method != "penman_monteith":
-            raise ValueError(f"Invalid PET method: {self.pet_method}. Only 'penman_monteith' is supported.")
+        if self.pet_method != "hamon":
+            raise ValueError(f"Invalid PET method: {self.pet_method}. Only 'hamon' is supported.")
         
         # FIXME: More flexibility is needed in the future for different PET methods
         # extract the latitude from the catchment object, first checking if `cat` has a crs

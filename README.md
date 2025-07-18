@@ -18,6 +18,8 @@ pip install -e ".[dev]"
 
 ## Usage
 
+### Python API
+
 ```python
 from marrmotflow import MARRMOTWorkflow
 
@@ -45,6 +47,47 @@ marrmot_experiment.run()
 # Save the results
 marrmot_experiment.save_results('path/to/save/results/directory')
 ```
+
+### Command Line Interface
+
+MarrmotFlow includes a command-line interface for running workflows from JSON configuration files:
+
+```bash
+# Run a workflow from a JSON configuration file
+marrmotflow run --json config.json --output ./results
+
+# Run with verbose output
+marrmotflow run --json config.json --output ./results --verbose
+
+# Show help
+marrmotflow run --help
+```
+
+#### JSON Configuration Format
+
+Create a JSON file with your workflow configuration:
+
+```json
+{
+    "name": "MyWorkflow",
+    "cat": "/path/to/catchment.shp",
+    "forcing_vars": {
+        "precip": "precipitation",
+        "temp": "temperature"
+    },
+    "forcing_files": "/path/to/forcing/data/",
+    "forcing_units": {
+        "precip": "mm/day",
+        "temp": "degC"
+    },
+    "pet_method": "hamon",
+    "model_number": [7, 37],
+    "forcing_time_zone": "UTC",
+    "model_time_zone": "America/Edmonton"
+}
+```
+
+For detailed CLI documentation, see [CLI_DOCUMENTATION.md](CLI_DOCUMENTATION.md).
 
 ## Development
 
