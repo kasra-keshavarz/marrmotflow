@@ -54,13 +54,13 @@ MarrmotFlow includes a command-line interface for running workflows from JSON co
 
 ```bash
 # Run a workflow from a JSON configuration file
-marrmotflow run --json config.json --output ./results
+marrmotflow --json config.json --output-path ./results
 
 # Run with verbose output
-marrmotflow run --json config.json --output ./results --verbose
+marrmotflow --json config.json --output-path ./results --verbose
 
 # Show help
-marrmotflow run --help
+marrmotflow --help
 ```
 
 #### JSON Configuration Format

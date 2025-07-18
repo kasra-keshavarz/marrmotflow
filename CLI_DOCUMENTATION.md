@@ -17,31 +17,32 @@ pip install marrmotflow
 ### Basic Usage
 
 ```bash
-marrmotflow run --json config.json --output ./results
+marrmotflow --json config.json --output-path ./results
 ```
 
 ### Command Options
 
 - `--json PATH`: (Required) Path to JSON configuration file containing workflow parameters
-- `--output PATH`: Output directory path for saving results (default: `./marrmot_output`)
+- `--output-path PATH`: Output directory path for saving results (default: `./marrmot_output`)
 - `-v, --verbose`: Enable verbose output
+- `--version`: Show version information
 - `--help`: Show help message and exit
 
 ### Examples
 
 #### Basic workflow execution:
 ```bash
-marrmotflow run --json my_config.json
+marrmotflow --json my_config.json
 ```
 
 #### Workflow with custom output directory:
 ```bash
-marrmotflow run --json my_config.json --output /path/to/results
+marrmotflow --json my_config.json --output-path /path/to/results
 ```
 
 #### Workflow with verbose output:
 ```bash
-marrmotflow run --json my_config.json --output ./results --verbose
+marrmotflow --json my_config.json --output-path ./results --verbose
 ```
 
 ## JSON Configuration File Format
@@ -128,24 +129,18 @@ The JSON configuration supports environment variable substitution using the form
 
 ## Command Reference
 
-### Global Options
+### Main Command
 
-- `--version`: Show version information
-- `--help`: Show help message
-
-### Commands
-
-#### `run`
-
-Run a MARRMOTWorkflow from a JSON configuration file.
+The main `marrmotflow` command runs a MARRMOTWorkflow from a JSON configuration file.
 
 **Usage:**
 ```bash
-marrmotflow run [OPTIONS]
+marrmotflow [OPTIONS]
 ```
 
 **Options:**
 - `--json PATH`: Path to JSON configuration file [required]
-- `--output PATH`: Output directory path [default: ./marrmot_output]
+- `--output-path PATH`: Output directory path [default: ./marrmot_output]
 - `-v, --verbose`: Enable verbose output
+- `--version`: Show version information
 - `--help`: Show command help

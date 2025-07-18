@@ -30,15 +30,15 @@ from .core import MARRMOTWorkflow
     is_flag=True,
     help='Enable verbose output'
 )
-def run_workflow(json_file: Path, output_path: Path, verbose: bool):
+@click.version_option()
+def cli(json_file: Path, output_path: Path, verbose: bool):
     """
-    Run MARRMOTWorkflow from a JSON configuration file.
+    MarrmotFlow - A Python package for hydrological modeling workflows.
     
-    This command reads a JSON configuration file, creates a MARRMOTWorkflow instance,
-    runs the workflow, and saves the results to the specified output directory.
+    This CLI runs MARRMOT model workflows from JSON configuration files.
     
     Example:
-        marrmotflow --json config.json --output ./results
+        marrmotflow --json config.json --output-path ./results
     """
     try:
         if verbose:
@@ -77,21 +77,6 @@ def run_workflow(json_file: Path, output_path: Path, verbose: bool):
     except Exception as e:
         click.echo(f"Error: Workflow execution failed: {e}", err=True)
         sys.exit(1)
-
-
-@click.group()
-@click.version_option()
-def cli():
-    """
-    MarrmotFlow - A Python package for hydrological modeling workflows.
-    
-    This CLI provides tools for running MARRMOT model workflows from configuration files.
-    """
-    pass
-
-
-# Add the run_workflow command to the CLI group
-cli.add_command(run_workflow, name="run")
 
 
 # Main entry point

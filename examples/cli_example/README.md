@@ -37,13 +37,13 @@ Create a JSON file named `workflow_config.json`:
 
 ```bash
 # Basic usage
-marrmotflow run --json workflow_config.json
+marrmotflow --json workflow_config.json
 
 # With custom output directory
-marrmotflow run --json workflow_config.json --output ./my_results
+marrmotflow --json workflow_config.json --output-path ./my_results
 
 # With verbose output
-marrmotflow run --json workflow_config.json --output ./my_results --verbose
+marrmotflow --json workflow_config.json --output-path ./my_results --verbose
 ```
 
 ### 3. Expected outputs
